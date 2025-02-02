@@ -3,7 +3,7 @@ A tutorial on using AirportItlwm for enabling native macOS wifi on hackintoshes 
 
 ---
 
-For this guide, you'll need good knowledge of the config.plist structure, although this tutorial is fairly simple. You should be able to do this within 45 mins to 2 hrs. This guide is seperated in 3 different parts: in part 1, we will spoof the intel wireless card as a broadcom card. In part 2, we will use OCLP to patch the card and get wifi working. In part 3, we will fix bluetooth, as it breaks sometimes during the patching. Additionally, this guide assumes that you have a fully functional hackintosh already.
+For this guide, you'll need good knowledge of the config.plist structure, although this tutorial is fairly simple. You should be able to do this within 45 mins to 2 hrs. This guide is seperated in 3 different parts: in part 1, we will spoof the intel wireless card as a broadcom card. In part 2, we will use OCLP to patch the card and get wifi working. In part 3, we will fix bluetooth, as it breaks sometimes during the patching. Additionally, this guide assumes that you have a fully functional hackintosh already. I am not responsible for any data lost. Proceed at your own caution and make sure to make a backup of your working EFI first.
 
 ---
 
@@ -23,7 +23,7 @@ For this guide, you'll need good knowledge of the config.plist structure, althou
 ## Step 1.: Spoofing:  
 First, open Hackintool and navigate to the PCIe section. There, you will find your Intel Wireless card. Mine is listed as "Intel Cooperation | Wireless 8260 | Network Controller". Look at it´s Device Path and right click it. Select "Copy device path". ![Hackintool page](hackintool.png)
 
-Then, open your config.plist in your .plist editor of choice and find the "DeviceProperties" tab. Under "Add", add a new dictionary with the name of *your* network card´s Device Path:
+Then, open your config.plist in your .plist editor of choice and find the ```DeviceProperties``` tab. Under ```Add```, add a new dictionary with the name of *your* network card´s Device Path:
 | Key | Type | Value |
 | ----------- | ----------- | ----------- |
 | IOName | String | pci14e4,43a0 |
@@ -48,4 +48,14 @@ After that, it´s time to add the kexts. Add the kexts (IO80211LegacyFamily.kext
 | 4 | AMFIPass.kext |
 | 5 | AirportItlwm.kext |
 
-Warning: Make sure you don´t have itlwm. If you do, disable it or delete it completely.
+Warning: Make sure you don´t have itlwm.kext enabled. If you do, disable it or delete it completely.
+
+It should look like this now: ![PCIRoot](Kexts_PT.png) ![PCIRoot](Kexts_OCAT.png)
+
+Now, we need to block one of Apple´s kexts from loading. For that, go to the ```Kernel > Block``` section and enable ```Allow ÌOSkywalk Downgrade```.
+
+It should look like this now: ![PCIRoot](Block_PT.png) ![PCIRoot](Block_OCAT.png)
+
+Also, for OCLP to work, you need to set ```csr-active-config``` (located under ```NVRAM > 7C436110-AB2A-4BBB-A880-FE41995C9F82```) and set it to ```03080000```.
+
+That should look like this: ![csr-active-config](CSR_PT.png) ![PCIRoot](CSR_OCAT.png)
