@@ -18,7 +18,7 @@ For this guide, you'll need good knowledge of the config.plist structure, althou
 []()
 []()
 
-Step 1.: Spoofing:
+## Step 1.: Spoofing:  
 First, open Hackintool and navigate to the PCIe section. There, you will find your Intel Wireless card. Mine is listed as "Intel Cooperation | Wireless 8260 | Network Controller". Look at it´s Device Path and right click it. Select "Copy device path". ![Hackintool page](hackintool.png)
 
 Then, open your config.plist in your .plist editor of choice and find the "DeviceProperties" tab. Under "Add", add a new dictionary with the name of *your* network card´s Device Path:
@@ -34,3 +34,15 @@ Then, open your config.plist in your .plist editor of choice and find the "Devic
 | subsystem-id | Data | 17010000 |
 | subsystem-vendor-id | Data | 6B100000|
 | vendor-id | Data | E4140000 |
+
+It should look like this now: ![PCIRoot](PCI_PT.png) ![PCIRoot](PCI_OCAT.png)
+
+After that, it´s time to add the kexts. Add the kexts (IO80211LegacyFamily.kext, IOSkywalkFamily.kext, AMFIPass.kext, AirportItlwm.kext) to your folder "EFI > OC > Kexts". In ProperTree, press "⌘ + r" to add them into the config.plist, or simply drag and drop them into your OCAT window. Make sure to watch their order very carefully. From bottom to top: "AirportItlwm.kext > AMFIPass.kext > IO80211FamilyLegacy.kext/Contents/PlugIns/AirPortBrcmNIC.kext > IO80211FamilyLegacy.kext > IOSkywalkFamily.kext". Here a table:
+| Number | Kext |
+| ----------- | ----------- |
+| 1 | IOSkywalkFamily.kext |
+| 2 | IO80211FamilyLegacy.kext |
+| 3 | IO80211FamilyLegacy.kext/Contents/PlugIns/AirPortBrcmNIC.kext |
+| 4 | AMFIPass.kext |
+| 5 | AirportItlwm.kext |
+Warning: Make sure you don´t have itlwm. If you do, disable it or delete it completely.
