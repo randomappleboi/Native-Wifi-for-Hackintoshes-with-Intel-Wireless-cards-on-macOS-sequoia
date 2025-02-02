@@ -48,6 +48,7 @@ After that, it´s time to add the kexts. Add the kexts to your EFI folder: ```EF
 | 4 | AMFIPass.kext |
 | 5 | AirportItlwm.kext |
 
+Note: Make sure you don´t have ```amfi_get_out_of_my_way``` or ```amfi=0x80``` in your boot args.
 Warning: Make sure you don´t have itlwm.kext enabled. If you do, disable it or delete it completely.
 
 It should look like this now: ![Kexts](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Kexts_PT.png) ![Kexts](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Kexts_OCAT.png)
@@ -63,6 +64,20 @@ It should look like this now: ![Block](https://raw.githubusercontent.com/randoma
 Also, for OCLP to work, you need to set ```csr-active-config``` (located under ```NVRAM > 7C436110-AB2A-4BBB-A880-FE41995C9F82```) and set it to ```03080000```.
 
 That should look like this: ![csr-active-config](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/CSR_PT.png) ![PCIRoot](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/CSR_OCAT.png)
+  
+**Reboot!**
 
 ---
 
+## Step 2.: Patching
+
+Open OpenCore Legacy Patcher and select ```Post-Install Root Patch```. It should now find the patch. Select ```Start Root Patching```. After it finishes, reboot.
+![OCLP](OCLP.png)
+
+---
+
+Now, the native wifi still won´t work. To fix that, we will simply comment out the spoof. To do that, open your config.plist to ```DeviceProperties > Add```again. Then, find your network card´s device path and add a ```#```in front of it.
+
+Now, it should say ```#PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)```.
+
+![PCI_#](PCI_PT_#) ![PCI_#](PCI_OCAT_#) 
