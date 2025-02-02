@@ -50,10 +50,17 @@ Warning: Make sure you don´t have itlwm.kext enabled. If you do, disable it or 
 
 It should look like this now: ![Kexts](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Kexts_PT.png) ![Kexts](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Kexts_OCAT.png)
 
+---
+
 Now, we need to block one of Apple´s kexts from loading. For that, go to the ```Kernel > Block``` section and enable ```Allow ÌOSkywalk Downgrade```.
 
-It should look like this now: ![Block]([Block_PT.png](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Block_PT.png) ![Block](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Block_OCAT.png)
+It should look like this now: ![Block](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Block_PT.png) ![Block](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Block_OCAT.png)
+
+---
 
 Also, for OCLP to work, you need to set ```csr-active-config``` (located under ```NVRAM > 7C436110-AB2A-4BBB-A880-FE41995C9F82```) and set it to ```03080000```.
 
 That should look like this: ![csr-active-config](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/CSR_PT.png) ![PCIRoot](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/CSR_OCAT.png)
+
+---
+
