@@ -35,7 +35,9 @@ Then, open your config.plist in your .plist editor of choice and find the ```Dev
 | subsystem-vendor-id | Data | 6B100000|
 | vendor-id | Data | E4140000 |
 
-It should look like this now: ![PCIRoot]([https://github.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/blob/main/assets/S1/PCI_PT.png?raw=true) ![PCIRoot](PCI_OCAT.png)
+It should look like this now: ![PCIRoot](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/PCI_PT.png) ![PCIRoot](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/PCI_OCAT.png)
+
+---
 
 After that, it´s time to add the kexts. Add the kexts to your EFI folder: ```EFI > OC > Kexts```. In ProperTree, press "⌘ + r" to add them into the config.plist, or simply drag and drop them into your OCAT window. Make sure to watch their order very carefully. From bottom to top: *"AirportItlwm.kext > AMFIPass.kext > IO80211FamilyLegacy.kext/Contents/PlugIns/AirPortBrcmNIC.kext > IO80211FamilyLegacy.kext > IOSkywalkFamily.kext"*. Here a table:
 | Number | Kext |
