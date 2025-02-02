@@ -78,6 +78,24 @@ Open OpenCore Legacy Patcher and select ```Post-Install Root Patch```. It should
 
 Now, the native wifi still won´t work. To fix that, we will simply comment out the spoof. To do that, open your config.plist to ```DeviceProperties > Add```again. Then, find your network card´s device path and add a ```#```in front of it.
 
-Now, it should say ```#PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)```.
+Now, it should say something like ```#PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)```. This is just an example, yours will differ.
 
 ![PCI_#](PCI_PT_#) ![PCI_#](PCI_OCAT_#) 
+
+After a reboot, wifi should work flawlessly now. AirPlay and iServices should also work, even AirDrop, although AirDrop is one-way onely.
+
+---
+
+## Step 3.: Bluetooth
+
+As you may have noticed, bluetooth doesn´t work anymore. Fortunately, there is a very easy fix. Go to ```NVRAM > 7C436110-AB2A-4BBB-A880-FE41995C9F82``` and create two new keys:
+| Key | Type | Value |
+| ----------- | ----------- | ----------- |
+| bluetoothExternalDongleFailed | Data | 00 |
+| bluetoothInternalControllerInfo | Sting | 0000000000000000000000000000 |
+
+That should looke like this:
+![BT](BT_PT) ![BT](BT_OCAT)
+
+
+
