@@ -18,6 +18,8 @@ For this guide, you'll need good knowledge of the config.plist structure, althou
 []()
 []()
 
+---
+
 ## Step 1.: Spoofing:  
 First, open Hackintool and navigate to the PCIe section. There, you will find your Intel Wireless card. Mine is listed as "Intel Cooperation | Wireless 8260 | Network Controller". Look at it´s Device Path and right click it. Select "Copy device path". ![Hackintool page](hackintool.png)
 
@@ -45,4 +47,5 @@ After that, it´s time to add the kexts. Add the kexts (IO80211LegacyFamily.kext
 | 3 | IO80211FamilyLegacy.kext/Contents/PlugIns/AirPortBrcmNIC.kext |
 | 4 | AMFIPass.kext |
 | 5 | AirportItlwm.kext |
+
 Warning: Make sure you don´t have itlwm. If you do, disable it or delete it completely.
