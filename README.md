@@ -8,13 +8,13 @@ For this guide, you'll need good knowledge of the config.plist structure, althou
 ---
 
 ## Prerequisets: 
-[Hackintool](https://github.com/benbaker76/Hackintool)
-[OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)
-[ProperTree](github.com/corpnewt/ProperTree) (or any other .plist editor)
-[IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip)
-[IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IOSkywalkFamily-v1.2.0.zip)
-[AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)
-[AirportItlwm.kext](https://github.com/openintelwireless/itlwm/releases) **Get the AirportItlwm_v2.3.0_stable_Ventura.kext.zip!!!**
+[Hackintool](https://github.com/benbaker76/Hackintool)  
+[OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)  
+[ProperTree](https://github.com/corpnewt/ProperTree) (or any other .plist editor)  
+[IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip)  
+[IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IOSkywalkFamily-v1.2.0.zip)  
+[AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)  
+[AirportItlwm.kext](https://github.com/openintelwireless/itlwm/releases) **Get the AirportItlwm_v2.3.0_stable_Ventura.kext.zip!!!**  
 []()
 []()
 
