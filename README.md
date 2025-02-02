@@ -15,13 +15,11 @@ For this guide, you'll need good knowledge of the config.plist structure, althou
 [IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IOSkywalkFamily-v1.2.0.zip)  
 [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)  
 [AirportItlwm.kext](https://github.com/openintelwireless/itlwm/releases) **Get the AirportItlwm_v2.3.0_stable_Ventura.kext.zip!!!**  
-[]()
-[]()
 
 ---
 
 ## Step 1.: Spoofing:  
-First, open Hackintool and navigate to the PCIe section. There, you will find your Intel Wireless card. Mine is listed as "Intel Cooperation | Wireless 8260 | Network Controller". Look at it´s Device Path and right click it. Select "Copy device path". ![Hackintool page](hackintool.png)
+First, open Hackintool and navigate to the PCIe section. There, you will find your Intel Wireless card. Mine is listed as "Intel Cooperation | Wireless 8260 | Network Controller". Look at it´s Device Path and right click it. Select "Copy device path". ![Hackintool page]([hackintool.png](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/e96836b5b26ffe3a2e0bf7cb7c29d456986b8eb4/assets/S1/Hackintool.png))
 
 Then, open your config.plist in your .plist editor of choice and find the ```DeviceProperties``` tab. Under ```Add```, add a new dictionary with the name of *your* network card´s Device Path:
 | Key | Type | Value |
@@ -37,7 +35,7 @@ Then, open your config.plist in your .plist editor of choice and find the ```Dev
 | subsystem-vendor-id | Data | 6B100000|
 | vendor-id | Data | E4140000 |
 
-It should look like this now: ![PCIRoot](PCI_PT.png) ![PCIRoot](PCI_OCAT.png)
+It should look like this now: ![PCIRoot]([https://github.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/blob/main/assets/S1/PCI_PT.png?raw=true) ![PCIRoot](PCI_OCAT.png)
 
 After that, it´s time to add the kexts. Add the kexts to your EFI folder: ```EFI > OC > Kexts```. In ProperTree, press "⌘ + r" to add them into the config.plist, or simply drag and drop them into your OCAT window. Make sure to watch their order very carefully. From bottom to top: *"AirportItlwm.kext > AMFIPass.kext > IO80211FamilyLegacy.kext/Contents/PlugIns/AirPortBrcmNIC.kext > IO80211FamilyLegacy.kext > IOSkywalkFamily.kext"*. Here a table:
 | Number | Kext |
@@ -50,12 +48,12 @@ After that, it´s time to add the kexts. Add the kexts to your EFI folder: ```EF
 
 Warning: Make sure you don´t have itlwm.kext enabled. If you do, disable it or delete it completely.
 
-It should look like this now: ![PCIRoot](Kexts_PT.png) ![PCIRoot](Kexts_OCAT.png)
+It should look like this now: ![Kexts](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Kexts_PT.png) ![Kexts](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Kexts_OCAT.png)
 
 Now, we need to block one of Apple´s kexts from loading. For that, go to the ```Kernel > Block``` section and enable ```Allow ÌOSkywalk Downgrade```.
 
-It should look like this now: ![PCIRoot](Block_PT.png) ![PCIRoot](Block_OCAT.png)
+It should look like this now: ![Block]([Block_PT.png](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Block_PT.png) ![Block](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Block_OCAT.png)
 
 Also, for OCLP to work, you need to set ```csr-active-config``` (located under ```NVRAM > 7C436110-AB2A-4BBB-A880-FE41995C9F82```) and set it to ```03080000```.
 
-That should look like this: ![csr-active-config](CSR_PT.png) ![PCIRoot](CSR_OCAT.png)
+That should look like this: ![csr-active-config](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/CSR_PT.png) ![PCIRoot](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/CSR_OCAT.png)
