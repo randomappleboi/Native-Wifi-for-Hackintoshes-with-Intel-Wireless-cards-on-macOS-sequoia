@@ -19,7 +19,7 @@ For this guide, you'll need good knowledge of the config.plist structure, althou
 ---
 
 ## Step 1.: Spoofing:  
-First, open Hackintool and navigate to the PCIe section. There, you will find your Intel Wireless card. Mine is listed as "Intel Cooperation | Wireless 8260 | Network Controller". Look at it´s Device Path and right click it. Select "Copy device path". ![Hackintool page]([hackintool.png](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/e96836b5b26ffe3a2e0bf7cb7c29d456986b8eb4/assets/S1/Hackintool.png))
+First, open Hackintool and navigate to the PCIe section. There, you will find your Intel Wireless card. Mine is listed as "Intel Cooperation | Wireless 8260 | Network Controller". Look at it´s Device Path and right click it. Select "Copy device path". ![Hackintool page](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/e96836b5b26ffe3a2e0bf7cb7c29d456986b8eb4/assets/S1/Hackintool.png)
 
 Then, open your config.plist in your .plist editor of choice and find the ```DeviceProperties``` tab. Under ```Add```, add a new dictionary with the name of *your* network card´s Device Path:
 | Key | Type | Value |
@@ -72,7 +72,7 @@ That should look like this: ![csr-active-config](https://raw.githubusercontent.c
 ## Step 2.: Patching
 
 Open OpenCore Legacy Patcher and select ```Post-Install Root Patch```. It should now find the patch. Select ```Start Root Patching```. After it finishes, reboot.
-![OCLP](OCLP.png)
+![OCLP](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S2/OCLP.png)
 
 ---
 
@@ -80,7 +80,7 @@ Now, the native wifi still won´t work. To fix that, we will simply comment out 
 
 Now, it should say something like ```#PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)```. This is just an example, yours will differ.
 
-![PCI_#](PCI_PT_#) ![PCI_#](PCI_OCAT_#) 
+![PCI_#](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S2/PCI_PT_%23.png) ![PCI_#](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S2/PCI_OCAT_%23.png) 
 
 After a reboot, wifi should work flawlessly now. AirPlay and iServices should also work, even AirDrop, although AirDrop is one-way onely.
 
@@ -95,7 +95,9 @@ As you may have noticed, bluetooth doesn´t work anymore. Fortunately, there is 
 | bluetoothInternalControllerInfo | Sting | 0000000000000000000000000000 |
 
 That should looke like this:
-![BT](BT_PT) ![BT](BT_OCAT)
+![BT](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S3/BT_PT.png) ![BT](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S3/BT_OCAT.png)
+
+Should it not work, please also try resetting NVRAM multiple times.
 
 
 
