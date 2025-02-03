@@ -64,6 +64,9 @@ It should look like this now: ![Block](https://raw.githubusercontent.com/randoma
 Also, for OCLP to work, you need to set ```csr-active-config``` (located under ```NVRAM > 7C436110-AB2A-4BBB-A880-FE41995C9F82```) and set it to ```03080000```.
 
 That should look like this: ![csr-active-config](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/CSR_PT.png) ![PCIRoot](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/CSR_OCAT.png)
+
+
+
   
 **Reboot!**
 
@@ -73,6 +76,10 @@ That should look like this: ![csr-active-config](https://raw.githubusercontent.c
 
 Open OpenCore Legacy Patcher and select ```Post-Install Root Patch```. It should now find the patch. Select ```Start Root Patching```. After it finishes, reboot.
 ![OCLP](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S2/OCLP.png)
+
+> [!NOTE]
+> If you have error `SIP is enabled` while patching, clear NVRAM and try again.
+
 
 ---
 
@@ -92,7 +99,7 @@ As you may have noticed, Bluetooth doesn't work anymore. Fortunately, there is a
 | Key | Type | Value |
 | ----------- | ----------- | ----------- |
 | bluetoothExternalDongleFailed | Data | 00 |
-| bluetoothInternalControllerInfo | String | 0000000000000000000000000000 |
+| bluetoothInternalControllerInfo | Data | 0000000000000000000000000000 |
 
 That should look like this:
 ![BT](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S3/BT_PT.png) ![BT](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S3/BT_OCAT.png)
