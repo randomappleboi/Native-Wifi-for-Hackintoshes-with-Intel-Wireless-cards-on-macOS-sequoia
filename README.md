@@ -8,13 +8,24 @@ For this guide, you'll need good knowledge of the config.plist structure, althou
 ---
 
 ## Prerequisites: 
-[Hackintool](https://github.com/benbaker76/Hackintool)  
-[OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)  
-[ProperTree](https://github.com/corpnewt/ProperTree) (or any other .plist editor)  
-[IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip)  
-[IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IOSkywalkFamily-v1.2.0.zip)  
-[AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)  
-[AirportItlwm.kext](https://github.com/openintelwireless/itlwm/releases) **Get the AirportItlwm_v2.3.0_stable_Ventura.kext.zip!!!**  
+
+### Software:
+* [Hackintool](https://github.com/benbaker76/Hackintool)  
+* [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)  
+* [ProperTree](https://github.com/corpnewt/ProperTree) (or any other .plist editor)  
+### For Wi-Fi
+* [IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip)  
+* [IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IOSkywalkFamily-v1.2.0.zip)  
+* [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)  
+* [AirportItlwm.kext](https://github.com/openintelwireless/itlwm/releases) **Get the AirportItlwm_v2.3.0_stable_Ventura.kext.zip!!!**  
+
+### For Bluetooth:
+
+* `IntelBTPatcher.kext` and `IntelBluetoothFirmware.kext` Download from **[here](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases/latest)**
+
+* `BlueToolFixup.kext` from  [acidanthera/BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM)
+
+
 
 ---
 
@@ -95,7 +106,7 @@ After a reboot, WiFi should work flawlessly now. AirPlay and iServices should al
 
 ## Step 3.: Bluetooth
 
-As you may have noticed, Bluetooth doesn't work anymore. Fortunately, there is a very easy fix. Go to ```NVRAM > 7C436110-AB2A-4BBB-A880-FE41995C9F82``` and create two new keys:
+As you may have noticed, Bluetooth doesn't work anymore.  Go to ```NVRAM > 7C436110-AB2A-4BBB-A880-FE41995C9F82``` and create two new keys:
 | Key | Type | Value |
 | ----------- | ----------- | ----------- |
 | bluetoothExternalDongleFailed | Data | 00 |
@@ -104,7 +115,12 @@ As you may have noticed, Bluetooth doesn't work anymore. Fortunately, there is a
 That should look like this:
 ![BT](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S3/BT_PT.png) ![BT](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S3/BT_OCAT.png)
 
-Should it not work, please also try resetting NVRAM multiple times.
 
+You need to generate a new `System UUID` in your config.plist in your `PlatformInfo` and install the ROM `from System`, then choose `Mac` and click `Generate`.
+
+**Reboot.**
+
+Should it not work, please also try resetting NVRAM multiple times.
+---
 
 Disclaimer: I didn't do the "hard work", I only gathered information on the internet and wrote this tutorial. This is a temporary solution, and should be considered as such.
