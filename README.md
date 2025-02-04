@@ -74,6 +74,8 @@ That should look like this: ![csr-active-config](https://raw.githubusercontent.c
 Open OpenCore Legacy Patcher and select ```Post-Install Root Patch```. It should now find the patch. Select ```Start Root Patching```. After it finishes, reboot.
 ![OCLP](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S2/OCLP.png)
 
+If you get any SIP-related errors, try resetting NVRAM. 
+
 ---
 
 Now, the native WiFi still won't work. To fix that, we will simply comment out the spoof. To do that, open your config.plist to ```DeviceProperties > Add``` again. Then, find your network card's device path and add a ```#``` in front of it.
@@ -92,7 +94,7 @@ As you may have noticed, Bluetooth doesn't work anymore. Fortunately, there is a
 | Key | Type | Value |
 | ----------- | ----------- | ----------- |
 | bluetoothExternalDongleFailed | Data | 00 |
-| bluetoothInternalControllerInfo | String | 0000000000000000000000000000 |
+| bluetoothInternalControllerInfo | Data | 0000000000000000000000000000 |
 
 That should look like this:
 ![BT](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S3/BT_PT.png) ![BT](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S3/BT_OCAT.png)
