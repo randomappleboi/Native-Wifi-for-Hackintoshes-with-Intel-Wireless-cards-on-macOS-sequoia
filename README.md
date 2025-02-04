@@ -3,18 +3,18 @@ A tutorial on using AirportItlwm for enabling native macOS WiFi on hackintoshes 
 
 ---
 
-For this guide, you'll need good knowledge of the config.plist structure, although this tutorial is fairly simple. You should be able to do this within 45 mins to 2 hrs. This guide is separated in 3 different parts: in part 1, we will spoof the Intel wireless card as a Broadcom card. In part 2, we will use OCLP to patch the card and get WiFi working. In part 3, we will fix Bluetooth, as it breaks sometimes during the patching. Additionally, this guide assumes that you have a fully functional hackintosh already. I am not responsible for any data lost. Proceed at your own caution and ensure you make a backup of your working EFI first.
+For this guide, you'll need good knowledge of the config.plist structure, although this tutorial is fairly simple. You should be able to do this within 45 mins to 2 hrs. This guide is separated in 3 different parts: in part 1, we will spoof the Intel wireless card as a Broadcom card. In part 2, we will use OCLP to patch the card and get WiFi working. In part 3, we will fix Bluetooth, as it breaks sometimes during the patching. Additionally, this guide assumes that you have a fully functional hackintosh already, which means that bluetooth works, too. If not, please refer to Dortania's guide. I am not responsible for any data lost. Proceed at your own caution and ensure you make a backup of your working EFI first.
 
 ---
 
 ## Prerequisites: 
-[Hackintool](https://github.com/benbaker76/Hackintool)  
-[OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)  
-[ProperTree](https://github.com/corpnewt/ProperTree) (or any other .plist editor)  
-[IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip)  
-[IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IOSkywalkFamily-v1.2.0.zip)  
-[AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)  
-[AirportItlwm.kext](https://github.com/openintelwireless/itlwm/releases) **Get the AirportItlwm_v2.3.0_stable_Ventura.kext.zip!!!**  
+- [Hackintool](https://github.com/benbaker76/Hackintool)  
+- [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher)  
+- [ProperTree](https://github.com/corpnewt/ProperTree) (or any other .plist editor)  
+- [IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip)  
+- [IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IOSkywalkFamily-v1.2.0.zip)  
+- [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)  
+- [AirportItlwm.kext](https://github.com/openintelwireless/itlwm/releases) **Get the AirportItlwm_v2.3.0_stable_Ventura.kext.zip!!!**  
 
 ---
 
