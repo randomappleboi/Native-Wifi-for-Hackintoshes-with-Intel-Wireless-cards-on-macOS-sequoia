@@ -48,8 +48,11 @@ After that, it's time to add the kexts. Add the kexts to your EFI folder: ```EFI
 | 4 | AMFIPass.kext |
 | 5 | AirportItlwm.kext |
 
-Note: Make sure you don't have ```amfi_get_out_of_my_way``` or ```amfi=0x80``` in your boot args.  
-Warning: Make sure you don't have itlwm.kext enabled. If you do, disable it or delete it completely.
+> [!NOTE]
+> Make sure you don't have ```amfi_get_out_of_my_way``` or ```amfi=0x80``` in your boot args.
+
+> [!WARNING]
+> Make sure you don't have itlwm.kext enabled. If you do, disable it or delete it completely.
 
 It should look like this now: ![Kexts](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Kexts_PT.png) ![Kexts](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S1/Kexts_OCAT.png)
 
@@ -74,7 +77,8 @@ That should look like this: ![csr-active-config](https://raw.githubusercontent.c
 Open OpenCore Legacy Patcher and select ```Post-Install Root Patch```. It should now find the patch. Select ```Start Root Patching```. After it finishes, reboot.
 ![OCLP](https://raw.githubusercontent.com/randomappleboi/Native-Wifi-for-Hackintoshes-with-Intel-Wireless-cards-on-macOS-sequoia/refs/heads/main/assets/S2/OCLP.png)
 
-If you get any SIP-related errors, try resetting NVRAM. 
+> [!NOTE]
+> If you get any SIP-related errors, try resetting NVRAM. 
 
 ---
 
